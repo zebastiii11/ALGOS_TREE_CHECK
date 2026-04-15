@@ -3,4 +3,7 @@ project(Programm C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(Programm main.c)
+add_executable(Programm main.c
+        tree.h
+        tree.c
+)
