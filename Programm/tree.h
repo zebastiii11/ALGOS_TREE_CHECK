@@ -5,14 +5,15 @@
 #ifndef PROGRAMM_TREE_H
 #define PROGRAMM_TREE_H
 
+// Knoten Aufbau
 typedef struct Node {
     int number;
-    struct Node *right;
     struct Node *left;
+    struct Node *right;
 } Node;
 
-Node *create_node(int key);     // neuer Knoten
-Node *insert_node(Node *root, int key);     // Wurzel einfügen
+Node *create_new_node(int number);     // neuer Knoten
+Node *insert_value(Node *root, int number);     // Data einfügen
 Node *read_tree_from_file(const char *filename);
 void free_tree(Node *root);
 
