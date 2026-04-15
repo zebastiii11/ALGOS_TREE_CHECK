@@ -16,5 +16,6 @@ Node *create_new_node(int number);     // neuer Knoten
 Node *insert_value(Node *root, int number);     // Data einfügen
 Node *read_tree_from_file(const char *filename);
 void free_tree(Node *root);
+void print_tree(Node *root);
 
 #endif //PROGRAMM_TREE_H

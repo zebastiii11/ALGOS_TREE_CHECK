@@ -2,24 +2,18 @@
 #include <stdlib.h>
 #include "tree.h"
 
-int main(int count, char *files[]) {    // Wie viele Dinge und Liste der Dinge übergeben
+int main() {    // Wie viele Dinge und Liste der Dinge übergeben
 
     Node *root;
 
-    // Prüfen ob Dateiname übergeben wurde
-    if (count != 2) {   // müssen zwei sein
-        printf("Verwendung: %s filename\n", files[0]);
-        return 1;
-    }
-
-    // Baum erstellen
-    root = read_tree_from_file(files[1]);
+    root = read_tree_from_file("../test.txt");
 
     // Falls Datei nicht gelesen werden konnte
     if (root == NULL) {
         printf("Baum konnte nicht erstellt werden.\n");
         return 1;
     }
+    print_tree(root);
 
 
     // root ist die Wurzel des fertigen Baums

@@ -66,3 +66,13 @@ void free_tree(Node *root) {
     free_tree(root->right);
     free(root);
 }
+
+void print_tree(Node *root) {
+    if (root == NULL) {
+        return;
+    }
+
+    print_tree(root->left);
+    printf("%d\n", root->number);
+    print_tree(root->right);
+}
