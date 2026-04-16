@@ -30,6 +30,16 @@ Aufwand: O(n), da jeder Knoten genau einmal gelöscht wird.
 Worst Case: O(n)
 Best Case: O(n)
 
+##checkHeight(Node *root):
+
+Die Funktion berechnet rekursiv die Höhe des Baums. Für jeden Knoten werden die Höhen des linken und rechten Teilbaums bestimmt.
+Aufwand: O(n), da jeder Knoten genau einmal besucht wird.
+
+##checkIfBalanced(Node *root):
+
+Berechnet durch subtraktion der Höhen des linken und rechten Teilbaums, den Balancefaktor. Wenn der Balancefaktor größer als 1 oder kleiner als -1 ist, ist der Baum nicht balanciert.
+Aufwand: O(n), da zur Berechnung des Balancefaktors die Höhen der Teilbäume mit checkHeight bestimmt werden.
+
 ##print_tree(Node *root):
 
 Gibt die Werte des Baums rekursiv in traversierter Reihenfolge aus. Zuerst wird der linke Teilbaum besucht, dann der aktuelle Knoten und danach der rechte Teilbaum. Dadurch erscheinen die Werte sortiert. Sobald root == NULL ist, bricht die Funktion ab.
