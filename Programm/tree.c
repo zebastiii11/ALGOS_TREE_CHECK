@@ -56,6 +56,24 @@ Node *read_tree_from_file(const char *filename) {
     return root;    // Wurzel zurückgeben
 }
 
+int checkHeight(Node *root){ //berechnet die Höhe der einzelnen Subtrees rekursiv
+    if(root == NULL){
+        return 0;
+    }
+    int leftTreeHeight = checkHeight(root->left);
+    int rightTreeHeight = checkHeight(root->right);
+
+    if(leftTreeHeight>rightTreeHeight){
+        return 1 + leftTreeHeight;
+    }else{
+        return 1 + rightTreeHeight;
+    }
+}
+
+int checkIfBalanced(Node* root){ // gibt den Balance Faktor zurück (Rechter Subtree - Linker Subtree)
+    return(checkHeight(root->right) - checkHeight(root->left));
+}
+
 // Speicher freigeben
 void free_tree(Node *root) {
     if (root == NULL) {
@@ -73,6 +91,10 @@ void print_tree(Node *root) {
     }
 
     print_tree(root->left);
-    printf("%d\n", root->number);
+    if(checkIfBalanced(root) > 1 || checkIfBalanced(root) < -1){
+            printf("bal(%d) = %d (AVL violation!)\n",root->number,checkIfBalanced(root));
+    }else{
+            printf("bal(%d) = %d\n",root->number,checkIfBalanced(root));
+    }
     print_tree(root->right);
 }
