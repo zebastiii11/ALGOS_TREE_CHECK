@@ -18,6 +18,6 @@ Node *read_tree_from_file(const char *filename);
 int checkHeight(Node *root);
 int checkIfBalanced(Node *root);
 void free_tree(Node *root);
-void print_tree(Node *root, int *isAVLTree, int *minValue, int *maxValue, int *sum, int *avgCount);
+void print_tree(Node *root, int *isAVLTree,int *isFirstNumber, int *minValue, int *maxValue, int *sum, int *avgCount);
 
 #endif //PROGRAMM_TREE_H

@@ -8,6 +8,7 @@ int main() {    // Wie viele Dinge und Liste der Dinge übergeben
 
     root = read_tree_from_file("../test.txt");
     int isAVLTree = 1;
+    int isFirstNumber = 1;
     int minValue = 0;
     int maxValue = 0;
     int sum = 0;
@@ -18,7 +19,7 @@ int main() {    // Wie viele Dinge und Liste der Dinge übergeben
         printf("Baum konnte nicht erstellt werden.\n");
         return 1;
     }
-    print_tree(root,&isAVLTree, &minValue, &maxValue, &sum, &count);
+    print_tree(root,&isAVLTree,&isFirstNumber, &minValue, &maxValue, &sum, &count);
 
 
 

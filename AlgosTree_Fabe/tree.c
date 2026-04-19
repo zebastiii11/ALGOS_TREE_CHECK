@@ -85,9 +85,13 @@ void free_tree(Node *root) {
     free(root);
 }
 
-void print_tree(Node *root, int *isAVLTree, int *minValue, int *maxValue, int *sum, int *avgCount) {
+void print_tree(Node *root, int *isAVLTree,int *isFirstNumber, int *minValue, int *maxValue, int *sum, int *avgCount) {
     if (root == NULL) {
         return;
+    }
+    if(*isFirstNumber){
+        *minValue = root->number;
+        *isFirstNumber = 0;
     }
     if(root->number > *maxValue){
         *maxValue = root->number;
@@ -98,12 +102,12 @@ void print_tree(Node *root, int *isAVLTree, int *minValue, int *maxValue, int *s
     *sum += root->number;
     *avgCount = *avgCount + 1;
 
-    print_tree(root->left, isAVLTree, minValue, maxValue, sum, avgCount);
+    print_tree(root->left, isAVLTree,isFirstNumber, minValue, maxValue, sum, avgCount);
     if(checkIfBalanced(root) > 1 || checkIfBalanced(root) < -1){
             printf("bal(%d) = %d (AVL violation!)\n",root->number,checkIfBalanced(root));
             *isAVLTree = 0;
     }else{
             printf("bal(%d) = %d\n",root->number,checkIfBalanced(root));
     }
-    print_tree(root->right, isAVLTree, minValue, maxValue, sum, avgCount);
+    print_tree(root->right, isAVLTree,isFirstNumber, minValue, maxValue, sum, avgCount);
 }
