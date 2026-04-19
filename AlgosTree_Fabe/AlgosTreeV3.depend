@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1776598308 source:c:\users\fabia\desktop\algos\algostreev3\main.c
+	<stdio.h>
+	<stdlib.h>
+	"tree.h"
+
+1776598166 c:\users\fabia\desktop\algos\algostreev3\include\tree.h
+
+1776596713 source:c:\users\fabia\desktop\github\algos_tree_check\programm\tree.c
+	<stdio.h>
+	<stdlib.h>
+	"tree.h"
+
+1776333824 c:\users\fabia\desktop\github\algos_tree_check\programm\tree.h
+
+1776598703 source:c:\users\fabia\desktop\algos\algostreev3\tree.c
+	<stdio.h>
+	<stdlib.h>
+	"tree.h"
+

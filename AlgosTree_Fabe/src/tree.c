@@ -20,7 +20,7 @@ Node *create_new_node(int number) {
     return new_node;
 }
 
-// Data hinzufÃ¼gen
+// Data hinzufügen
 Node *insert_value(Node *root, int number) {
     if (root == NULL) { // Falls noch kein Knoten existiert, dann einen zuerst erstellen
         return create_new_node(number);
@@ -28,7 +28,7 @@ Node *insert_value(Node *root, int number) {
 
     if (number < root->number) {    // Kleinere Werte gehen nach links
         root->left = insert_value(root->left, number);  // ruft sich selbst mit dem linken Kind auf
-    } else if (number > root->number) { // grÃ¶ÃŸere nach rechts
+    } else if (number > root->number) { // größere nach rechts
         root->right = insert_value(root->right, number);
     }
 
@@ -43,7 +43,7 @@ Node *read_tree_from_file(const char *filename) {
     Node *root = NULL;  // Am Anfang kein Baum da
     int number; // Zahlen gespeichert
 
-    if (file == NULL) { // Fehler beim Ã¶ffnen der Datei
+    if (file == NULL) { // Fehler beim öffnen der Datei
         fprintf(stderr, "Fehler: Datei '%s' konnte nicht geoeffnet werden.\n", filename);
         return NULL;
     }
@@ -53,10 +53,10 @@ Node *read_tree_from_file(const char *filename) {
     }
 
     fclose(file);
-    return root;    // Wurzel zurÃ¼ckgeben
+    return root;    // Wurzel zurückgeben
 }
 
-int checkHeight(Node *root){ //berechnet die HÃ¶he der einzelnen Subtrees rekursiv
+int checkHeight(Node *root){ //berechnet die Höhe der einzelnen Subtrees rekursiv
     if(root == NULL){
         return 0;
     }
@@ -70,7 +70,7 @@ int checkHeight(Node *root){ //berechnet die HÃ¶he der einzelnen Subtrees rekurs
     }
 }
 
-int checkIfBalanced(Node* root){ // gibt den Balance Faktor zurÃ¼ck (Rechter Subtree - Linker Subtree)
+int checkIfBalanced(Node* root){ // gibt den Balance Faktor zurück (Rechter Subtree - Linker Subtree)
     return(checkHeight(root->right) - checkHeight(root->left));
 }
 
@@ -79,23 +79,22 @@ void free_tree(Node *root) {
     if (root == NULL) {
         return;
     }
-//zuerst TeilbÃ¤ume und dann Knoten, sonst geht Zeiger auf Kinder verloren
+//zuerst Teilbäume und dann Knoten, sonst geht Zeiger auf Kinder verloren
     free_tree(root->left);
     free_tree(root->right);
     free(root);
 }
 
-void print_tree(Node *root, int *isAVLTree) {
+void print_tree(Node *root) {
     if (root == NULL) {
         return;
     }
 
-    print_tree(root->left, isAVLTree);
+    print_tree(root->left);
     if(checkIfBalanced(root) > 1 || checkIfBalanced(root) < -1){
             printf("bal(%d) = %d (AVL violation!)\n",root->number,checkIfBalanced(root));
-            *isAVLTree = 0;
     }else{
             printf("bal(%d) = %d\n",root->number,checkIfBalanced(root));
     }
-    print_tree(root->right, isAVLTree);
+    print_tree(root->right);
 }
