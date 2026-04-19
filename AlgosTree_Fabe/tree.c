@@ -91,6 +91,7 @@ void print_tree(Node *root, int *isAVLTree,int *isFirstNumber, int *minValue, in
     }
     if(*isFirstNumber){
         *minValue = root->number;
+        *maxValue = root->number;
         *isFirstNumber = 0;
     }
     if(root->number > *maxValue){
