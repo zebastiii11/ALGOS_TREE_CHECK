@@ -40,10 +40,10 @@ Aufwand: O(n), da jeder Knoten genau einmal besucht wird.
 Berechnet durch subtraktion der Höhen des linken und rechten Teilbaums, den Balancefaktor. Wenn der Balancefaktor größer als 1 oder kleiner als -1 ist, ist der Baum nicht balanciert.
 Aufwand: O(n), da zur Berechnung des Balancefaktors die Höhen der Teilbäume mit checkHeight bestimmt werden.
 
-##print_tree(Node *root):
+##print_tree(Node *root, int *isAVLTree,int *isFirstNumber, int *minValue, int *maxValue, int *sum, int *avgCount):
 
 Gibt die Werte des Baums rekursiv in traversierter Reihenfolge aus. Zuerst wird der linke Teilbaum besucht, dann der aktuelle Knoten und danach der rechte Teilbaum. Dadurch erscheinen die Werte sortiert. Sobald root == NULL ist, bricht die Funktion ab.
 
-Aufwand: O(n), da jeder Knoten genau einmal besucht wird.
-Worst Case: O(n)
-Best Case: O(n)
+Aufwand: O(n), da jeder Knoten genau einmal besucht wird. Zusätzlich wird noch mit der Funktion checkHeight() ein O(n) Aufwand verbunden, wodurch sich der Gesamtaufwand auf O(n^2) erhöht.
+Worst Case: O(n^2)
+Best Case: O(n log n) bei einem ausgeglichenen Baum.
